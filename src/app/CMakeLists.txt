@@ -16,6 +16,7 @@ include_directories(.)
 include_directories(../)
 
 aux_source_directory(./ allSource)
+aux_source_directory(./widget allSource)
 
 add_executable(${BIN_NAME} ${allSource})
 

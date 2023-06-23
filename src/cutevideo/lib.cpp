@@ -2,9 +2,16 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-#include <iostream>
+#include "lib.h"
 
-void libTest()
+#include <MediaInfoDLL/MediaInfoDLL.h>
+
+QString videoInfo(const QString &path)
 {
-    std::cout << "hello world" << std::endl;
+    MediaInfoDLL::MediaInfo info;
+    info.Open(path.toStdString());
+    info.Option("Complete", "1");
+    info.Option("Inform", "CSV");
+    QString strData(info.Inform().c_str());
+    return strData;
 }

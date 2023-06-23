@@ -2,10 +2,16 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-#include <cutevideo/lib.h>
+#include <QApplication>
 
-int main()
+#include "mainwindow.h"
+
+int main(int argc, char *argv[])
 {
-    libTest();
-    return 0;
+    QApplication a(argc, argv);
+
+    MainWindow w;
+    w.show();
+
+    return a.exec();
 }

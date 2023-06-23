@@ -2,4 +2,6 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-extern void libTest();
+#include <QString>
+
+extern QString videoInfo(const QString &path);
