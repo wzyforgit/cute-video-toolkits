@@ -21,6 +21,7 @@ signals:
 
 private:
     void initUI();
+    void onPipelineFinished(bool isAllRight);
 
     FileChooseArea *fileChooseArea;
     PipelineArea *pipelineArea;

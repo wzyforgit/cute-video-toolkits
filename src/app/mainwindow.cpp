@@ -20,7 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     initUI();
 
+    pipelineArea->setFileListFuction([this](){ return fileChooseArea->fileList(); });
+
     connect(fileChooseArea, &FileChooseArea::selectFileChanged, mediaInfoArea, &MediaInfoArea::setInfo);
+    connect(pipelineArea, &PipelineArea::finished, this, &MainWindow::onPipelineFinished);
 }
 
 void MainWindow::initUI()
@@ -39,4 +42,12 @@ void MainWindow::initUI()
     setCentralWidget(center);
     resize(1280, 720);
     setWindowTitle(tr("呆呆视频工具箱"));
+}
+
+void MainWindow::onPipelineFinished(bool isAllRight)
+{
+    if(isAllRight)
+    {
+        logArea->setLogInfo(tr("已顺利完成本轮处理"));
+    }
 }

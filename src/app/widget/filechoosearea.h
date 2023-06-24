@@ -17,6 +17,8 @@ class FileChooseArea : public QWidget
 public:
     explicit FileChooseArea(QWidget *parent = nullptr);
 
+    QStringList fileList() const;
+
 signals:
     void selectFileChanged(const QString &filePath);
 

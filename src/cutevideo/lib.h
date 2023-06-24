@@ -5,3 +5,4 @@
 #include <QString>
 
 extern QString videoInfo(const QString &path);
+extern bool losslessCompression(const QString &filePath, const QString &outputFilePath);

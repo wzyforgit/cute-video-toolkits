@@ -91,6 +91,13 @@ void FileChooseArea::addNewFiles(const QList<QUrl> &urls)
     qDebug() << "Ready to add files: " << filePaths;
 
     auto oldList = fileListmodel->stringList();
-    fileListmodel->setStringList(oldList + filePaths);
+    auto newList = oldList + filePaths;
+    QSet<QString> pathSet(newList.begin(), newList.end());
+    fileListmodel->setStringList(pathSet.values());
     centerWidget->setCurrentWidget(fileListView);
+}
+
+QStringList FileChooseArea::fileList() const
+{
+    return fileListmodel->stringList();
 }
